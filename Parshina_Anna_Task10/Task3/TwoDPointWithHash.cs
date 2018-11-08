@@ -7,9 +7,10 @@
 
         public override int GetHashCode()
         {
-            return x * y; // ^ выполняет операцию логического исключающего XOR побитно
-
-            // в чем тут проблема?
+            if (x == 0) return (y/2) * y;
+            if (y == 0) return (x/2) * x;
+            //return x == y ? x * (x / 3) : x * y;
+            return x == y? (x/2) * x * x : (x * (y / 2))^(x ^ y);
         }
 
 
